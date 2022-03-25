@@ -1,0 +1,21 @@
+{
+  "name": "nodewebapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "DEBUG=app nodemon node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andres Venegas Ruiz",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0",
+    "debug": "^4.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
