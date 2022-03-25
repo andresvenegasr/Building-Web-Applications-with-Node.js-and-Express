@@ -27,8 +27,16 @@ app.use(morgan('tiny'));
 // This line configures the express to serve the static files in public folder.
 app.use(express.static(path.join(__dirname, '/public')));
 
+// Define the views directory
+app.set('views', './src/views');
+// Set the template enginee
+app.set('view engine', 'ejs');
+
 app.get('/', (req, res) => {
-    res.send('Hello from my app.');
+    res.render('index', { 
+        title: 'VenegasDev',
+        data: ['a', 'b', 'c']
+    });
 });
 
 app.listen(PORT, () => {
