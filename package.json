@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "DEBUG=app nodemon node app.js",
+    "debug": "DEBUG=* nodemon node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andres Venegas Ruiz",
@@ -17,5 +18,12 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "nodemonConfig":{
+    "restartable": "rs",
+    "delay": 2500,
+    "env": {
+      "PORT": 4000
+    }
   }
 }

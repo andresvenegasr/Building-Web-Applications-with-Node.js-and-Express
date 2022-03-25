@@ -13,6 +13,7 @@ const morgan = require('morgan');
 // Is to consult the path of the application.
 const path = require('path');
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 /* 
@@ -30,7 +31,7 @@ app.get('/', (req, res) => {
     res.send('Hello from my app.');
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     // Example of usage of debug and chalk
-    debug(`Listening on port ${chalk.green('3000')}`);
+    debug(`Listening on port ${chalk.green(PORT)}`);
 });
