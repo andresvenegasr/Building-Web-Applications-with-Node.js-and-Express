@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 
 // Use this package to add colors in the messages. ie: chalk.green 
@@ -17,6 +19,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 const sessionRouter = require('./src/routers/sessionRouter');
+const adminRouter = require('./src/routers/adminRouter');
 
 /* 
     Configuration of morgan, this line can be configurated with
@@ -34,9 +37,8 @@ app.set('views', './src/views');
 // Set the template enginee
 app.set('view engine', 'ejs');
 
-
-
 app.use('/sessions', sessionRouter);
+app.use('/admin', adminRouter);
 
 app.get('/', (req, res) => {
     res.render('index', { 

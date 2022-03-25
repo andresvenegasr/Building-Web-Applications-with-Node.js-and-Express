@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "DEBUG=app nodemon node app.js",
+    "start": "DEBUG=app nodemon -L node app.js",
     "debug": "DEBUG=* nodemon node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,8 +13,10 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "debug": "^4.3.4",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "mongodb": "^4.4.1",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
