@@ -3,6 +3,8 @@ const { MongoClient, ObjectId } = require('mongodb');
 const debug = require('debug')('app:sessionRouter');
 const sessions = require('../data/sessions.json');
 
+const speakerService = require('../services/speakerServices');
+
 const MONGO_USER = process.env.MONGO_USER;
 const MONGO_PASSWORD = encodeURIComponent(process.env.MONGO_PASSWORD);
 
@@ -67,6 +69,9 @@ sessionRouter.route('/:id')
 
                 const session = await db.collection('sessions').findOne({ _id: new ObjectId(id) });
 
+                const speaker = await speakerService.getSpeakerById(session.speakers[0].id);
+                
+                session.speaker = speaker.data;
                 res.render('session', { session });
             } catch (error) {
                 debug(error.stack);
